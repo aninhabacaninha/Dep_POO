@@ -16,11 +16,8 @@ public class quest3 {
         for(int i = 0; i < 10; i++) {
            if(notas[i] >= 5) {
                cont++;
-               System.out.println(cont);
-           } else {
-               System.out.println("nota baixa");
            }
         }
-      System.out.println(cont);
+      System.out.println(cont + "alunos com nota acima da média!");
     }
 }
