@@ -8,5 +8,12 @@ public class Exemplo1POO {
         
         System.out.println("X: " + xP1);
         System.out.println("Y: " + yP1);
+        
+        p1.setPosicao(10, 5);
+         xP1 = p1.getX();
+         yP1 = p1.getY();
+        
+        System.out.println("X: " + xP1);
+        System.out.println("Y: " + yP1);
     }
 }
