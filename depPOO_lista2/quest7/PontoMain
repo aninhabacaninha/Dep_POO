@@ -1,0 +1,26 @@
+package quest7;
+
+import java.util.Scanner;
+
+public class PontoMain {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Ponto p1 = new Ponto();
+		Ponto p2 = new Ponto();
+		
+		//Ponto 1
+		System.out.println("Digite um valor para o X do primeiro ponto:");
+		p1.setX(sc.nextInt());
+		System.out.println("Digite um valor para o Y do primeiro ponto:");
+		p1.setY(sc.nextInt());
+		
+		//Ponto 2
+		System.out.println("Digite um valor para o X do segundo ponto:");
+		p2.setX(sc.nextInt());
+		System.out.println("Digite um valor para o Y do segundo ponto:");
+		p2.setY(sc.nextInt());
+		
+		p1.distancia(p2.getX(), p2.getY());
+		System.out.println("A distância entre os pontos é: " + p1.distancia(p2.getX(), p2.getY()));
+	}
+}
