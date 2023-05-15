@@ -11,7 +11,11 @@ public class Produto {
         this.quant = quant;
         this.valor = valor;
     }
-
+    
+    public void valorTotalProduto(float valorTotal) {
+    	valorTotal = valor * quant;
+    }
+    
     public int getId() {
         return id;
     }
