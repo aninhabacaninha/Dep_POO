@@ -3,6 +3,8 @@ package listaUsuario;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Hashtable;
 
 import javax.swing.ButtonGroup;
@@ -142,9 +144,42 @@ public class CadastroUsuario extends JFrame {
         
         btnCadastrar = new JButton("Cadastrar");
         btnCadastrar.setSize(150, 50);
+        btnCadastrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Usuario usuario = new Usuario();
+				usuario.setNome(lblNome.getText());
+				usuario.setIdade(Integer.parseInt(cb[cbIdade.getSelectedIndex()]));
+				
+				if(rbFem.isSelected()) {
+					usuario.setSexo('F');
+				}else if(rbMasc.isSelected()){
+					usuario.setSexo('M');
+				}
+				
+				usuario.setEndereco(lblEnder.getText());
+				
+				if(chEdu.isSelected()) {
+					usuario.setInteresseEducacao(true);
+				} else if(chEco.isSelected()) {
+					usuario.setInteresseEconomia(true);
+				} else if(chEsp.isSelected()) {
+					usuario.setInteresseEsporte(true);
+				}else if(chTecno.isSelected()) {
+					usuario.setInterTecnologia(true);
+				}
+			}
+		});
         
         btnCancelar = new JButton("Cancelar");
         btnCancelar.setSize(150, 50);
+        btnCancelar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CadastroUsuario.this.dispose();
+			}
+		});
         
         cont.add(txtNome);
         cont.add(lblNome);
