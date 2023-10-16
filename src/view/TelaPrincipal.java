@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,11 +20,28 @@ public class TelaPrincipal extends JFrame {
 		
 		btnCadastrar = new JButton("Cadastrar Funcionario");
 		btnCadastrar.setSize(200, 50);
-		btnCadastrar.setLocation(30, 30);
+		btnCadastrar.setLocation(30, 50);
+		btnCadastrar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TelaCadastroFuncionario();
+			}
+		});
 		
-		btnConsulta = new JButton("Consultar FuNCIONARIO");
+		btnConsulta = new JButton("Consultar Funcionario");
+		btnConsulta.setSize(200, 50);
+		btnConsulta.setLocation(30, 120);
+		btnConsulta.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new TelaConsulta();
+			}
+		});
 		
 		cont.add(btnCadastrar);
+		cont.add(btnConsulta);
 	}
 	
 	public static void main(String[] args) {
