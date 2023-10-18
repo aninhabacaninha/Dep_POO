@@ -1,6 +1,6 @@
 package view;
 
-import dao.Conexao;
+import dao.FabricaDeConexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 import model.Funcionario;
 
 public class TelaCadastroFuncionario extends JFrame implements ActionListener{
@@ -56,6 +57,7 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
         txtNome = new JTextField();
         txtNome.setBounds(115, 15, 250, 30);
 
+        
         lblCargo = new JLabel("Cargo:");
         lblCargo.setBounds(15,50, 100, 30);
         txtCargo = new JTextField();
@@ -101,7 +103,7 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
         funcionario.setSalario(Double.parseDouble(txtSalario.getText()));
                 
         try {
-            Connection conexao = Conexao.getConexao();
+            Connection conexao = FabricaDeConexao.getConexao();
             PreparedStatement stmt = conexao.prepareStatement("INSERT INTO Funcionario(nome, cargo, salario) VALUES (?, ?, ?);");
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCargo());
@@ -113,7 +115,7 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
         }
         
         try{
-            Connection conexao = Conexao.getConexao();
+            Connection conexao = FabricaDeConexao.getConexao();
             String sql = "SELECT codigo, nome, cargo, salario FROM Funcionario";
             PreparedStatement stmt = conexao.prepareStatement(sql);    
             ResultSet rs = stmt.executeQuery();
@@ -134,9 +136,4 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
             
         }        
     }
-    
-    public static void main(String[] args) {
-		TelaCadastroFuncionario janelaCadastro = new TelaCadastroFuncionario();
-		janelaCadastro.setVisible(true);
-	}
 }
