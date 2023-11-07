@@ -78,7 +78,7 @@ public class CadastroView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Usuario usuario = new Usuario();
-				usuario.setNome(txtNome.getName());
+				usuario.setNome(txtNome.getText());
 				String password = new String(psSenha.getPassword());
 				usuario.setSenha(password);
 				double saldo = Double.parseDouble(txtSaldo.getText());
