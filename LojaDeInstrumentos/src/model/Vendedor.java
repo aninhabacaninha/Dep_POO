@@ -2,16 +2,27 @@ package model;
 
 import java.util.ArrayList;
 
+import dao.VendedorDAO;
+
 public class Vendedor {
 	private int codigo;
 	private String nome;
 	private ArrayList<Produto> produtos;
 	private double saldo;
 	
+	public Vendedor() {}
+	
 	public Vendedor(int codigo, String nome, ArrayList<Produto> produtos, double saldo) {
 		this.codigo = codigo;
 		this.nome = nome;
 		this.produtos = produtos;
+		this.saldo = saldo;
+	}
+	
+	public Vendedor(int codigo, String nome, double saldo) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
 		this.saldo = saldo;
 	}
 
@@ -42,7 +53,6 @@ public class Vendedor {
 	}
 
 	public boolean cadastrarVendedor() {
-		//return VendedorDAO.addVendedor(this);
-		return true;
+		return VendedorDAO.addVendedor(this);
 	}
 }

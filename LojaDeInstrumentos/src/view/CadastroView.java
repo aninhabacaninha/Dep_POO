@@ -15,8 +15,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import dao.VendedorDAO;
 import model.Usuario;
+import model.Vendedor;
 
 public class CadastroView extends JFrame {
 	JTextField txtNome, txtSaldo;
@@ -77,17 +77,19 @@ public class CadastroView extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Usuario usuario = new Usuario();
-				usuario.setNome(txtNome.getText());
-				String password = new String(psSenha.getPassword());
-				usuario.setSenha(password);
-				double saldo = Double.parseDouble(txtSaldo.getText());
-				usuario.setSaldo(saldo);
-				
 				if(rSim.isSelected()) {
-					VendedorDAO vendedor = new VendedorDAO();
-					//vendedor.cadastrarVendedor();
+					Vendedor vendedor = new Vendedor();
+					vendedor.setNome(txtNome.getText());
+					double saldo = Double.parseDouble(txtSaldo.getText());
+					vendedor.setSaldo(saldo);
+					vendedor.cadastrarVendedor();
 				} else if(rNao.isSelected()) {
+					Usuario usuario = new Usuario();
+					usuario.setNome(txtNome.getText());
+					String password = new String(psSenha.getPassword());
+					usuario.setSenha(password);
+					double saldo = Double.parseDouble(txtSaldo.getText());
+					usuario.setSaldo(saldo);
 					usuario.cadastrarUsuario();
 				}
 			}
@@ -110,10 +112,5 @@ public class CadastroView extends JFrame {
 		painelayout.setBackground(Color.GRAY);
 		painelayout.add(btnCadastrar);
 		cont.add(painelayout);
-	}
-	
-	public static void main(String[] args) {
-		CadastroView janela = new CadastroView();
-		janela.setVisible(true);
 	}
 }
