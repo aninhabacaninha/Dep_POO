@@ -1,10 +1,14 @@
 package model;
 
+import dao.UsuarioDAO;
+
 public class Usuario {
 	private int codigo;
 	private String nome;
 	private String senha;
 	private double saldo;
+	
+	public Usuario() {}
 	
 	public Usuario(int codigo, String nome, String senha, double saldo) {
 		this.codigo = codigo;
@@ -12,7 +16,7 @@ public class Usuario {
 		this.senha = senha;
 		this.saldo = saldo;
 	}
-	
+	 
 	public Usuario(String nome, double saldo) {
 		this.nome = nome;
 		this.saldo = saldo;
@@ -39,7 +43,6 @@ public class Usuario {
 	}
 	
 	public boolean cadastrarUsuario() {
-		//return UsuarioDAO.addUsuario(this);
-		return true;
+		return UsuarioDAO.addUsuario(this);
 	}
 }

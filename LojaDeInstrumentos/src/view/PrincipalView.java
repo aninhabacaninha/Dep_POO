@@ -11,6 +11,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
+import view.CadastroView;
+
 public class PrincipalView extends JFrame implements ActionListener {
 	JPanel painelCentral;
 	JMenuBar menubar;
@@ -57,7 +59,7 @@ public class PrincipalView extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == miCadastrar) {
-			new CadastroView();
+			new CadastroView().setVisible(true);
 		} else if(e.getSource() == miConsultar) {
 			//new ConsultarUsuario().setVisible(true);
 		} else if(e.getSource() == miSair) {
